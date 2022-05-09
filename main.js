@@ -26,9 +26,18 @@ function randomNumbers(min, max) {
         numbers.push(sixteenNum);
       }
   }
-  
   console.log(numbers);
 
 // X UTENTE
 // 2. Chiedere all'utente di inserire un numero alla volta per 84 volte (ciclo do while) questi numeri dovranno essere generati sempre compresi fra 1 e 100
-   // 2.1 numeri non possono essere ripetuti
+   let userNum = [];
+   do {
+   let numChoice = prompt("Inserisci un numero compreso fra 1 e 100");
+   console.log(numChoice);
+    // 2.1 numeri non possono essere ripetuti
+    if (!userNum.includes(numChoice)){
+        userNum.push(numChoice);
+    }
+   } while (userNum.length < 84)
+
+   console.log(userNum)
