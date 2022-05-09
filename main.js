@@ -30,14 +30,23 @@ function randomNumbers(min, max) {
 
 // X UTENTE
 // 2. Chiedere all'utente di inserire un numero alla volta per 84 volte (ciclo do while) questi numeri dovranno essere generati sempre compresi fra 1 e 100
-   let userNum = [];
-   do {
-   let numChoice = prompt("Inserisci un numero compreso fra 1 e 100");
-   console.log(numChoice);
-    // 2.1 numeri non possono essere ripetuti
+    let userNum = [];
+    do {
+    let numChoice = prompt("Inserisci un numero compreso fra 1 e 100");
+    console.log(numChoice);
+    // 2.1 i numeri vengono inseriti all'interno dell'array
     if (!userNum.includes(numChoice)){
         userNum.push(numChoice);
+    } else if (numbers.includes(userNum)) {
+        alert("HAI PERSO!!")
+    } else {
+        // 2.2 alert per numero uguale inserito
+        alert("Si prega di non inseire 2 volte lo stesso numero")
     }
-   } while (userNum.length < 84)
+    } while (userNum.length < 2)
+    console.log(userNum)
 
-   console.log(userNum)
+    if (userNum.length < 2) {
+        alert("HAI VINTO!!!!")
+    }
+    // 3. alert per gioco finito a causa del numero presente in quelli genrati dal comp.
