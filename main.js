@@ -37,7 +37,7 @@ function randomNumbers(min, max) {
     // 2.1 i numeri vengono inseriti all'interno dell'array
     if (!userNum.includes(numChoice)){
         userNum.push(numChoice);
-    } else if (numbers.includes(userNum)) {
+    } else if (!numbers.includes(userNum)) {
         alert("HAI PERSO!!")
     } else {
         // 2.2 alert per numero uguale inserito
