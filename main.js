@@ -13,7 +13,21 @@
 
 // X COMPUTER
 // 1. creo funzione per generare numeri casuali da 1 a 100
+function randomNumbers(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
   // 1.2 creo ciclo for per stabilire quanti numeri dovranno essere generati (16) e non dovranno essere ripetuti più volte
+  const numbers = [];
+  while (numbers.length < 16) { 
+      // ciclo while per evitare che vengano estratti meno di 16 numeri
+      let sixteenNum = randomNumbers(1,100);
+      // proprietà includes per evitare che venga generato lo stesso numero
+      if (!numbers.includes(sixteenNum)){
+        numbers.push(sixteenNum);
+      }
+  }
+  
+  console.log(numbers);
 
 // X UTENTE
 // 2. Chiedere all'utente di inserire un numero alla volta per 84 volte (ciclo do while) questi numeri dovranno essere generati sempre compresi fra 1 e 100
