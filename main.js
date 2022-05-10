@@ -29,24 +29,27 @@ function randomNumbers(min, max) {
   console.log(numbers);
 
 // X UTENTE
-// 2. Chiedere all'utente di inserire un numero alla volta per 84 volte (ciclo do while) questi numeri dovranno essere generati sempre compresi fra 1 e 100
     let userNum = [];
-    do {
-    let numChoice = prompt("Inserisci un numero compreso fra 1 e 100");
-    console.log(numChoice);
-    // 2.1 i numeri vengono inseriti all'interno dell'array
-    if (!userNum.includes(numChoice)){
-        userNum.push(numChoice);
-    } else if (!numbers.includes(userNum)) {
-        alert("HAI PERSO!!")
-    } else {
-        // 2.2 alert per numero uguale inserito
-        alert("Si prega di non inseire 2 volte lo stesso numero")
+    let numChoice = false;
+// 2. Chiedere all'utente di inserire un numero alla volta per 84 volte fra 1 e 100
+    while ( numChoice === false && userNum.length < 3) {
+        const userNumber = Number(prompt("Inserisci un numero compreso fra 1 e 100"));
+        // 2.1 SE i numeri inseriti sono contenuti in quelli generati il numero scleto interromperà il gioco
+        if ( numbers.includes(userNumber) ) {
+            numChoice = true;
+        // 2.2 inserisco all'interno del ciclo proprietà per non ripetere lo stesso numero
+        } else if (userNum.includes(userNumber)) {
+            alert("Si prega di non inserire lo stesso numero")
+        // 2.3 se non si verificano le condizioni prima allora il numero viene aggiunto nella lista dell'utente
+        } else {
+            userNum.push(userNumber);
+        }
     }
-    } while (userNum.length < 2)
     console.log(userNum)
 
-    if (userNum.length < 2) {
+// 3. SE l'utente perde mostro punteggio ALTRIMENTI dichiaro il vincitore.
+    if (numChoice === true) {
+        alert(`Hai perso, il tuo punteggio è ${userNum.length}`);
+    } else {
         alert("HAI VINTO!!!!")
     }
-    // 3. alert per gioco finito a causa del numero presente in quelli genrati dal comp.
