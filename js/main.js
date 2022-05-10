@@ -42,9 +42,11 @@ if ( level === 0 ) {
 } else if ( level === 1 ) {
     userNumber = randomNumbers(1,80);
     userNumber = Number(prompt("Inserisci un numero compreso fra 1 e 80"));
-} else {
+} else if ( level === 2 ) {
     userNumber = randomNumbers(1,50);
     userNumber = Number(prompt("Inserisci un numero compreso fra 1 e 50"));
+} else {
+    userNum.push(userNumber);
 }
 
 // 2. Chiedere all'utente di inserire un numero alla volta per 84 volte
