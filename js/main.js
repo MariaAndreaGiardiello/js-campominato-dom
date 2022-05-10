@@ -33,33 +33,27 @@ function randomNumbers(min, max) {
     let numChoice = false;
 //2.1 creo un ciclo do while per permettere all'utente di selezionare il livello
 let level
-do {
-    level = Number(prompt("Scegli la difficoltà: 0 facile - 1 intermedio - 2 difficile"));
-} while ( level < 0 || level > 2) 
+let userNumber;
+level = Number(prompt("Scegli la difficoltà: 0 facile - 1 intermedio - 2 difficile"));
 // 2.2 definisco il range per la generazione dei numeri casuali a seconda della difficoltà.
-let userNumber = randomNumbers();
-if ( level === 0 && level < 100) {
-    userNumber = (1,100);
+if ( level === 0 ) {
+    userNumber = randomNumbers(1,100);
     userNumber = Number(prompt("Inserisci un numero compreso fra 1 e 100"));
-} else if ( level === 1 && level < 80) {
-    userNumber = (1,80);
+} else if ( level === 1 ) {
+    userNumber = randomNumbers(1,80);
     userNumber = Number(prompt("Inserisci un numero compreso fra 1 e 80"));
-} else if ( level === 2 && level < 50){
-    userNumber = (1,50);
-    userNumber = Number(prompt("Inserisci un numero compreso fra 1 e 50"));
 } else {
-    userNum.push(userNumber);
+    userNumber = randomNumbers(1,50);
+    userNumber = Number(prompt("Inserisci un numero compreso fra 1 e 50"));
 }
+
 // 2. Chiedere all'utente di inserire un numero alla volta per 84 volte
 while ( numChoice === false && userNum.length < 3) {
 // 3 SE i numeri inseriti sono contenuti in quelli generati il numero scleto interromperà il gioco
     if ( numbers.includes(userNumber) ) {
         numChoice = true;
-    // 3.2 inserisco all'interno del ciclo proprietà per non ripetere lo stesso numero
-    } else if (userNum.includes(userNumber)) {
-        alert("Si prega di non inserire lo stesso numero")
-    // 3.3 se non si verificano le condizioni prima allora il numero viene aggiunto nella lista dell'utente
     } else {
+    // 3.3 se non si verificano le condizioni prima allora il numero viene aggiunto nella lista dell'utente
         userNum.push(userNumber);
     }
 }
@@ -68,7 +62,11 @@ while ( numChoice === false && userNum.length < 3) {
 // 4. SE l'utente perde mostro punteggio ALTRIMENTI dichiaro il vincitore.
     if (numChoice === true) {
         alert(`Hai perso, il tuo punteggio è ${userNum.length}`);
-    } else {
+    // 4.1 inserisco all'interno del ciclo proprietà per non ripetere lo stesso numero
+    } else if (userNum.includes(userNumber)) {
+        alert("Si prega di non inserire lo stesso numero")
+    // 4.2 se non si verificano le condizioni prima allora il numero viene aggiunto nella lista dell'utente
+    }else {
         alert("HAI VINTO!!!!")
     }
 
