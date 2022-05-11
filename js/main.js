@@ -36,23 +36,20 @@ let level
 let userNumber;
 level = Number(prompt("Scegli la difficoltà: 0 facile - 1 intermedio - 2 difficile"));
 // 2.2 definisco il range per la generazione dei numeri casuali a seconda della difficoltà.
-if ( level === 0 ) {
-    userNumber = randomNumbers(1,100);
-    userNumber = Number(prompt("Inserisci un numero compreso fra 1 e 100"));
-} else if ( level === 1 ) {
-    userNumber = randomNumbers(1,80);
-    userNumber = Number(prompt("Inserisci un numero compreso fra 1 e 80"));
-} else if ( level === 2 ) {
-    userNumber = randomNumbers(1,50);
-    userNumber = Number(prompt("Inserisci un numero compreso fra 1 e 50"));
-} else {
-    userNum.push(userNumber);
-}
 
 // 2. Chiedere all'utente di inserire un numero alla volta per 84 volte
 while ( numChoice === false && userNum.length < 3) {
-// 3 SE i numeri inseriti sono contenuti in quelli generati il numero scleto interromperà il gioco
-    if ( numbers.includes(userNumber) ) {
+    if ( level === 0 ) {
+        userNumber = randomNumbers(1,100);
+        userNumber = Number(prompt("Inserisci un numero compreso fra 1 e 100"));
+    } else if ( level === 1 ) {
+        userNumber = randomNumbers(1,80);
+        userNumber = Number(prompt("Inserisci un numero compreso fra 1 e 80"));
+    } else if ( level === 2 ) {
+        userNumber = randomNumbers(1,50);
+        userNumber = Number(prompt("Inserisci un numero compreso fra 1 e 50"));
+    } else if ( numbers.includes(userNumber) ) {
+        // 3 SE i numeri inseriti sono contenuti in quelli generati il numero scleto interromperà il gioco
         numChoice = true;
     } else {
     // 3.3 se non si verificano le condizioni prima allora il numero viene aggiunto nella lista dell'utente
